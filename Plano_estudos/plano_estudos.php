@@ -113,7 +113,7 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
 
 /* Títulos */
 h1 {
-
+  margin-top: 85px;
   font-family: 'SimpleHandmade';
   font-size: 50px;
   color: #ffffff;
@@ -227,7 +227,7 @@ th {
     <div class="logo"><img src="/imagens/logoatual.png" alt="Logo"></div>
     <nav>
       <ul>
-          <li><a href="/anotacoes/index.html">Voltar</a></li>
+          <li><a href="/inicio.php">Voltar</a></li>
       </ul>
     </nav>
   </header>
