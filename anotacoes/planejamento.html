@@ -171,18 +171,29 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
 
   <script>
     function salvarPlanejamento() {
-      const linhas = document.querySelectorAll('#tabela-planejamento tr');
-      const planejamento = [];
+  const linhas = document.querySelectorAll('#tabela-planejamento tr');
+  const planejamento = [];
 
-      for (let i = 1; i < linhas.length; i++) {
-        const dia = linhas[i].cells[0].innerText;
-        const texto = linhas[i].cells[1].querySelector('textarea').value;
-        planejamento.push({ dia, planejamento: texto });
-      }
+  for (let i = 1; i < linhas.length; i++) {
+    const dia = linhas[i].cells[0].innerText;
+    const texto = linhas[i].cells[1].querySelector('textarea').value;
+    planejamento.push({ dia, planejamento: texto });
+  }
 
-      console.log("Planejamento da semana:", planejamento);
-      alert("Planejamento salvo no console! (simulação)");
+  fetch('anotacoes/salvar_planejamento.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(planejamento)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if(data.status === 'ok'){
+      alert("Planejamento salvo com sucesso!");
     }
+  })
+  .catch(err => console.error(err));
+}
+
   </script>
 
 </body>

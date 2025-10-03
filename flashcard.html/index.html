@@ -6,9 +6,9 @@
   <title>Flashcards</title>
   <style>
     *, *::before, *::after {
-    box-sizing: border-box;
-}
-@font-face {
+      box-sizing: border-box;
+    }
+    @font-face {
       font-family: 'SimpleHandmade';
       src: url(/fonts/SimpleHandmade.ttf);
     }
@@ -16,31 +16,22 @@
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
     }
-    @font-face {
-      font-family: 'SimpleHandmade';
-      src: url(/fonts/SimpleHandmade.ttf);
+    body {
+      font-family:'Roboto',sans-serif;
+      background-color: #2a5c55;
+      color: #000000;
+      padding: 0;
+      margin: 0;
+      display: flex;
     }
-body {
-  font-family:'Roboto',sans-serif;
-    background-color: #2a5c55;
-    color: #000000;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box; /* só para body */
-    display: flex;
-}
-header {
-  position: fixed; top:0; left:0; width:100%; height:70px;
-  background:#ffffffcc; display:flex; justify-content:space-between; align-items:center;
-  padding:0 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1); z-index:1000;
-}
+    header {
+      position: fixed; top:0; left:0; width:100%; height:70px;
+      background:#ffffffcc; display:flex; justify-content:space-between; align-items:center;
+      padding:0 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1); z-index:1000;
+    }
     header .logo img{height:450px;width:auto;display:block; margin-left: -85px;}
-
-
-nav ul{list-style:none; display:flex; align-items:center; gap:20px; margin:0;}
-nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius:8px; transition:.3s;}
-
-.avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #3f7c72;}
+    nav ul{list-style:none; display:flex; align-items:center; gap:20px; margin:0;}
+    nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius:8px; transition:.3s;}
     h1, h2 {
       font-family: 'SimpleHandmade';
       font-size: 35px;
@@ -56,19 +47,16 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-
-    /* Nova área para os botões de matérias */
     .materias {
       margin: 20px 0;
       text-align: center;
-      background-color: #3f7c72ff; /* azul diferente */
+      background-color: #3f7c72ff;
       padding: 15px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
     .materias button {
-      background-color: #bdebe3ff; /* azul claro */
+      background-color: #bdebe3ff;
       color: #3f7c72ff;
       border: none;
       padding: 12px 20px;
@@ -79,16 +67,14 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       transition: all 0.3s ease;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-
     .materias button:hover {
-      background-color: rgb(151, 190, 184); /* azul um pouco mais escuro */
+      background-color: rgb(151, 190, 184);
       transform: scale(1.05);
     }
     .botoesp{
       text-align: center;
       justify-content: center;
     }
-    /* Botões principais */
     button {
       background-color: #3f7c72ff;
       color: white;
@@ -101,18 +87,15 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       transition: all 0.3s ease;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-
     button:hover {
       background-color: #1e3834ff;
       transform: scale(1.05);
     }
-
     .formulario {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-
     .formulario input {
       padding: 12px;
       border: 2px solid #3f7c72ff;
@@ -120,7 +103,6 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       font-size: 1rem;
       color: #000;
     }
-
     #mensagem-sucesso {
       background-color: #cfe0f3;
       color: #2c2c54;
@@ -133,7 +115,6 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       animation: aparecer 0.4s ease;
       text-align: center;
     }
-
     .card {
       position: relative;
       width: 100%;
@@ -142,7 +123,6 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       perspective: 1000px;
       cursor: pointer;
     }
-
     .card .front,
     .card .back {
       position: absolute;
@@ -162,45 +142,18 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       box-sizing: border-box;
       text-align: center;
     }
-
     .card .back {
       transform: rotateY(180deg);
     }
-
     .card.flipped .front {
       transform: rotateY(180deg);
     }
-
     .card.flipped .back {
       transform: rotateY(360deg);
     }
-/* Barra toda */
-::-webkit-scrollbar {
-  width: 12px; /* largura da barra vertical */
-  height: 12px; /* altura da barra horizontal */
-}
-
-/* Fundo da barra */
-::-webkit-scrollbar-track {
-  background: #f0f0f0; /* cor do fundo da barra */
-  border-radius: 10px;
-}
-
-/* Parte que se move (thumb) */
-::-webkit-scrollbar-thumb {
-  background: #3f7c72; /* cor do "polegar" */
-  border-radius: 10px;
-  border: 3px solid #f0f0f0; /* dá efeito de espaçamento */
-}
-
-/* Thumb ao passar o mouse */
-::-webkit-scrollbar-thumb:hover {
-  background: #2a5c55;
-}
   </style>
 </head>
 <body>
-
 <header>
   <div class="logo"><img src="/imagens/logoatual.png" alt="Logo"></div>
   <nav>
@@ -209,6 +162,7 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
     </ul>
   </nav>
 </header>
+
   <!-- Flashcards -->
   <div class="container">
     <h1>Flashcards</h1>
@@ -222,8 +176,9 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
     <div class="botoesp">
       <button onclick="excluirFlashcardAtual()">Excluir Flashcard</button>
       <button onclick="excluirMateria()">Excluir Matéria</button>
+      <!-- Botão novo -->
+      <button onclick="nextCard()">Próxima Pergunta ➡️</button>
     </div>
-    <!-- Botões principais (sem anterior e próximo) -->
   </div>
 
   <!-- Adicionar Flashcard -->
@@ -271,7 +226,11 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       }
     }
 
-    // Removidos nextCard e previousCard, não usados mais
+    function nextCard() {
+      if (!flashcards.length) return;
+      currentCardIndex = (currentCardIndex + 1) % flashcards.length;
+      showCard(currentCardIndex);
+    }
 
     function escolherMateria(materia) {
       materiaAtual = materia;
@@ -298,13 +257,10 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       }
 
       let dados = JSON.parse(localStorage.getItem("flashcards")) || {};
-
       if (!dados[materia]) {
         dados[materia] = [];
       }
-
       dados[materia].push({ pergunta, resposta });
-
       localStorage.setItem("flashcards", JSON.stringify(dados));
 
       adicionarBotaoMateria(materia);
@@ -364,7 +320,6 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
 
     function carregarMaterias() {
       const dados = JSON.parse(localStorage.getItem("flashcards")) || {};
-      // Se não tiver nenhuma matéria no localStorage, adiciona uma matéria exemplo: História
       if (Object.keys(dados).length === 0) {
         dados["história"] = [
           { pergunta: "Quem descobriu o Brasil?", resposta: "Pedro Álvares Cabral" },
@@ -375,18 +330,12 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       Object.keys(dados).forEach(materia => {
         adicionarBotaoMateria(materia);
       });
-      // Definir matéria atual como a primeira do objeto
       const materias = Object.keys(dados);
       if (materias.length > 0) {
         escolherMateria(materias[0]);
       }
     }
 
-    function goHome() {
-      window.location.href = "/inicio.php";
-    }
-
-    // Executa ao carregar
     carregarMaterias();
     showCard(0);
   </script>

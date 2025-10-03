@@ -7,127 +7,111 @@
   <style>
     /* Barra toda */
 ::-webkit-scrollbar {
-  width: 12px; /* largura da barra vertical */
-  height: 12px; /* altura da barra horizontal */
+  width: 12px;
+  height: 12px;
 }
-
-/* Fundo da barra */
 ::-webkit-scrollbar-track {
-  background: #f0f0f0; /* cor do fundo da barra */
+  background: #f0f0f0;
   border-radius: 10px;
 }
-
-/* Parte que se move (thumb) */
 ::-webkit-scrollbar-thumb {
-  background: #3f7c72; /* cor do "polegar" */
+  background: #3f7c72;
   border-radius: 10px;
-  border: 3px solid #f0f0f0; /* dá efeito de espaçamento */
+  border: 3px solid #f0f0f0;
 }
-
-/* Thumb ao passar o mouse */
 ::-webkit-scrollbar-thumb:hover {
   background: #2a5c55;
 }
-        @font-face {
-      font-family: 'SimpleHandmade';
-      src: url(/fonts/SimpleHandmade.ttf);
-    }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      background-color: #3f7c72ff;
-      font-family:'Roboto',sans-serif;
-      text-align: center;
-      color: #3f7c72ff;
-      padding: 40px;
-      
-    }
 
-    h1 {
-      margin-top: 95;
-      font-size: 50px;
-      font-family: 'SimpleHandmade';
-      color: #ffffff;
-    }
-
-    table {
-      margin: 20px auto;
-      border-collapse: collapse;
-      width: 95%;
-      max-width: 800px;
-      background-color: #bdebe3ff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    th, td {
-      font-family: 'SimpleHandmade';
-      border: 1px solid #1e3834ff;
-      padding: 12px;
-      font-size: 25px;
-    }
-
-    th {
-      
-      background-color: #2a5c55;
-      color: #ffffff;
-    }
-
-    input[type="text"],
-    input[type="time"] {
-      width: 90%;
-      padding: 8px;
-      font-size: 14px;
-      border-radius: 6px;
-      border: 1px solid #2a5c55;
-      background-color: #f1f6fb;
-      color: #ffffff;
-    }
-
-    textarea {
-      width: 90%;
-      height: 100px;
-      border-radius: 8px;
-      border: 2px solid #2a5c55;
-      padding: 10px;
-      background-color: #bdebe3ff;
-      resize: none;
-      font-size: 16px;
-      color: #000000;
-      margin-top: 20px;
-    }
-
-    .btn-salvar {
-      font-family: 'SimpleHandmade';
-      margin-top: 25px;
-      background-color: #2a5c55;
-      color: #ffffff;
-      padding: 12px 25px;
-      border-radius: 10px;
-      font-size: 22px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      
-    }
-
-    .btn-salvar:hover {
-      background-color: #1e3834ff;
-    }
-    /* Header */
+@font-face {
+  font-family: 'SimpleHandmade';
+  src: url(/fonts/SimpleHandmade.ttf);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #3f7c72ff;
+  font-family:'Roboto',sans-serif;
+  text-align: center;
+  color: #3f7c72ff;
+  padding: 40px;
+}
+h1 {
+  margin-top: 95;
+  font-size: 50px;
+  font-family: 'SimpleHandmade';
+  color: #ffffff;
+}
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 95%;
+  max-width: 800px;
+  background-color: #bdebe3ff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+th, td {
+  font-family: 'SimpleHandmade';
+  border: 1px solid #1e3834ff;
+  padding: 12px;
+  font-size: 25px;
+}
+th {
+  background-color: #2a5c55;
+  color: #ffffff;
+}
+input[type="text"],
+input[type="time"] {
+  width: 90%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #2a5c55;
+  background-color: #f1f6fb;
+  color: #000000; /* agora o texto digitado aparece em preto */
+}
+input::placeholder {
+  color: #555; /* placeholder em cinza */
+}
+textarea {
+  width: 90%;
+  height: 100px;
+  border-radius: 8px;
+  border: 2px solid #2a5c55;
+  padding: 10px;
+  background-color: #bdebe3ff;
+  resize: none;
+  font-size: 16px;
+  color: #000000;
+  margin-top: 20px;
+}
+.btn-salvar {
+  font-family: 'SimpleHandmade';
+  margin-top: 25px;
+  background-color: #2a5c55;
+  color: #ffffff;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+.btn-salvar:hover {
+  background-color: #1e3834ff;
+}
+/* Header */
 header {
   position: fixed; top:0; left:0; width:100%; height:70px;
   background:#ffffffcc; display:flex; justify-content:space-between; align-items:center;
   padding:0 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1); z-index:1000;
 }
-    header .logo img{height:450px;width:auto;display:block; margin-left: -85px;}
-
-
-    nav ul{list-style:none; display:flex; align-items:center; gap:20px; margin:0;}
+header .logo img{height:450px;width:auto;display:block; margin-left: -85px;}
+nav ul{list-style:none; display:flex; align-items:center; gap:20px; margin:0;}
 nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius:8px; transition:.3s;}
-
   </style>
 </head>
 <body>
@@ -150,13 +134,13 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
       </tr>
     </thead>
     <tbody>
-      <tr><td>Segunda</td><td><input type="text" id="compromisso-segunda"></td><td><input type="time" id="horario-segunda"></td></tr>
-      <tr><td>Terça</td><td><input type="text" id="compromisso-terca"></td><td><input type="time" id="horario-terca"></td></tr>
-      <tr><td>Quarta</td><td><input type="text" id="compromisso-quarta"></td><td><input type="time" id="horario-quarta"></td></tr>
-      <tr><td>Quinta</td><td><input type="text" id="compromisso-quinta"></td><td><input type="time" id="horario-quinta"></td></tr>
-      <tr><td>Sexta</td><td><input type="text" id="compromisso-sexta"></td><td><input type="time" id="horario-sexta"></td></tr>
-      <tr><td>Sábado</td><td><input type="text" id="compromisso-sabado"></td><td><input type="time" id="horario-sabado"></td></tr>
-      <tr><td>Domingo</td><td><input type="text" id="compromisso-domingo"></td><td><input type="time" id="horario-domingo"></td></tr>
+      <tr><td>Segunda</td><td><input type="text" id="compromisso-segunda" placeholder="Digite aqui..."></td><td><input type="time" id="horario-segunda"></td></tr>
+      <tr><td>Terça</td><td><input type="text" id="compromisso-terca" placeholder="Digite aqui..."></td><td><input type="time" id="horario-terca"></td></tr>
+      <tr><td>Quarta</td><td><input type="text" id="compromisso-quarta" placeholder="Digite aqui..."></td><td><input type="time" id="horario-quarta"></td></tr>
+      <tr><td>Quinta</td><td><input type="text" id="compromisso-quinta" placeholder="Digite aqui..."></td><td><input type="time" id="horario-quinta"></td></tr>
+      <tr><td>Sexta</td><td><input type="text" id="compromisso-sexta" placeholder="Digite aqui..."></td><td><input type="time" id="horario-sexta"></td></tr>
+      <tr><td>Sábado</td><td><input type="text" id="compromisso-sabado" placeholder="Digite aqui..."></td><td><input type="time" id="horario-sabado"></td></tr>
+      <tr><td>Domingo</td><td><input type="text" id="compromisso-domingo" placeholder="Digite aqui..."></td><td><input type="time" id="horario-domingo"></td></tr>
     </tbody>
   </table>
 
@@ -189,6 +173,5 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
 
     window.onload = carregarAgenda;
   </script>
-
 </body>
 </html>

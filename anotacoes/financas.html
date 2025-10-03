@@ -175,7 +175,7 @@ input[type="text"],input[type="date"], select,
     function adicionarLinha() {
       const tabela = document.getElementById('tabela-financas').getElementsByTagName('tbody')[0];
       const novaLinha = tabela.insertRow();
-
+    
       novaLinha.innerHTML = `
         <td><input type="date"></td>
         <td><input type="text" placeholder="Ex: Compra de livro"></td>
@@ -189,30 +189,65 @@ input[type="text"],input[type="date"], select,
         <td><button class="btn btn-excluir" onclick="removerLinha(this)">⌫</button></td>
       `;
     }
-
+    
     function removerLinha(botao) {
       const linha = botao.parentNode.parentNode;
       linha.remove();
     }
-
+    
     function salvarTudo() {
-      const linhas = document.querySelectorAll('#tabela-financas tbody tr');
-      const dados = [];
+  const linhas = document.querySelectorAll('#tabela-financas tbody tr');
+  const dados = [];
 
-      linhas.forEach(linha => {
-        const inputs = linha.querySelectorAll('input, select');
-        dados.push({
-          data: inputs[0].value,
-          descricao: inputs[1].value,
-          valor: parseFloat(inputs[2].value),
-          tipo: inputs[3].value
-        });
-      });
+  linhas.forEach(linha => {
+    const inputs = linha.querySelectorAll('input, select');
+    dados.push({
+      data: inputs[0].value,
+      descricao: inputs[1].value,
+      valor: inputs[2].value || 0,
+      tipo: inputs[3].value
+    });
+  });
 
-      console.log("Dados salvos:", dados);
-      alert("Dados salvos no console! (simulação)");
+  const notas = document.querySelector("textarea").value;
+
+  // Desabilita botões pra evitar duplo envio (opcional)
+  const salvarBtn = document.querySelector('button.btn[onclick="salvarTudo()"]');
+  if (salvarBtn) salvarBtn.disabled = true;
+
+  fetch("anotacoes/salvar.php", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ financas: dados, notas: notas })
+})
+
+  .then(async res => {
+    const text = await res.text();
+    // tentar parsear JSON da resposta
+    let json;
+    try {
+      json = JSON.parse(text);
+    } catch (err) {
+      throw new Error("Resposta do servidor não é JSON: " + text);
     }
-  </script>
+    if (json.status && json.status === "ok") {
+      alert(json.message);
+      console.log("Servidor:", json);
+    } else {
+      throw new Error(json.message || "Erro desconhecido do servidor");
+    }
+  })
+  .catch(err => {
+    alert("Erro ao salvar: " + err.message);
+    console.error("Erro fetch/salvar:", err);
+  })
+  .finally(() => {
+    if (salvarBtn) salvarBtn.disabled = false;
+  });
+}
+
+    </script>
+    
 
 </body>
 </html>

@@ -241,16 +241,21 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
     });
 
     // Salvar tarefas no localStorage
-    btnSalvar.addEventListener('click', () => {
-      const tarefas = [];
-      document.querySelectorAll('.lista-tarefas .tarefa').forEach(tarefaDiv => {
-        const texto = tarefaDiv.querySelector('input[type="text"]').value;
-        const marcada = tarefaDiv.querySelector('input[type="checkbox"]').checked;
-        tarefas.push({ texto, marcada });
-      });
-      localStorage.setItem('minhasTarefas', JSON.stringify(tarefas));
-      alert('Tarefas salvas com sucesso! 💾');
-    });
+    btnSalvar.addEventListener('click', async () => {
+  const tarefas = [];
+  document.querySelectorAll('.lista-tarefas .tarefa').forEach(tarefaDiv => {
+    const texto = tarefaDiv.querySelector('input[type="text"]').value;
+    const marcada = tarefaDiv.querySelector('input[type="checkbox"]').checked;
+    tarefas.push({ texto, marcada });
+  });
+
+  await fetch('tarefas.php?acao=salvar', {
+    method: 'POST',
+    body: JSON.stringify(tarefas)
+  });
+
+  alert('Tarefas salvas no banco de dados! 💾');
+});
   </script>
 
 </body>
