@@ -113,7 +113,11 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
 
 /* Títulos */
 h1 {
+<<<<<<< HEAD
   margin-top: 70px;
+=======
+  margin-top: 85px;
+>>>>>>> 8e99e8bac065e709db83198d5c67922bcc54d355
   font-family: 'SimpleHandmade';
   font-size: 50px;
   color: #ffffff;

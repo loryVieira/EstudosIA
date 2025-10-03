@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Calendário</title>
@@ -237,6 +238,92 @@ h1{font-family:'SimpleHandmade',sans-serif;color:#fff;font-size:50px;margin-top:
 }
     /* Header */
 header {
+=======
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Calendário</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  @font-face { font-family:'SimpleHandmade'; src: url(/fonts/SimpleHandmade.ttf); }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#3f7c72ff;font-family:Roboto,Arial,sans-serif;color:#3f7c72ff;padding:40px;text-align:center}
+  h1{margin-top:65px;font-family:SimpleHandmade;color:#fff;font-size:50px}
+  .calendar{margin:30px auto;width:95%;max-width:900px;background:#bdebe3ff;border-radius:15px;padding:20px;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+  .month{display:flex;justify-content:space-between;align-items:center;background:#2a5c55;color:#fff;padding:15px 20px;border-radius:10px;font-family:SimpleHandmade;font-size:28px}
+  .month i{cursor:pointer;font-size:22px}
+  .weekdays,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin:10px 0}
+  .weekdays div{font-family:SimpleHandmade;color:#2a5c55;font-weight:bold;font-size:20px;padding:10px 0}
+  .day{padding:15px 0;background:#f1f6fb;border-radius:8px;cursor:pointer;font-family:SimpleHandmade}
+  .day:hover{background:#96d2c7;color:#fff}
+  .today{background:#2a5c55;color:#fff;font-weight:bold}
+  .active{border:2px solid #1e3834ff}
+  .event{display:flex;justify-content:space-between;align-items:center;padding:10px;margin-bottom:8px;background:#bdebe3ff;border-radius:6px;font-size:16px}
+  .event button.delete-btn{background:transparent;border:none;color:#c00;cursor:pointer;opacity:0;transition:0.15s}
+  .event:hover button.delete-btn{opacity:1}
+  .no-event{color:#777;font-style:italic;padding:10px}
+  .add-event{margin-top:25px;background:#2a5c55;color:#fff;padding:12px 25px;border-radius:10px;font-size:22px;border:none;cursor:pointer;font-family:SimpleHandmade}
+  .add-event:hover{background:#1e3834ff}
+  /* modal padrão (adicionar) */
+  .modal { display:none; position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); background:#fff; padding:18px; border-radius:14px; box-shadow:0 6px 24px rgba(0,0,0,.3); width:90%; max-width:420px; z-index:3000; }
+  .modal.active{display:block}
+  .modal .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;color:#2a5c55;font-family:SimpleHandmade;font-size:20px}
+  .modal input[type="text"], .modal input[type="time"]{width:100%;padding:10px;border-radius:8px;border:1px solid #2a5c55;margin:8px 0;font-size:16px}
+  .modal .footer{text-align:center;margin-top:12px}
+  .modal .btn{background:#2a5c55;color:#fff;padding:10px 18px;border-radius:10px;border:none;cursor:pointer}
+  .modal .close{cursor:pointer;color:#2a5c55;font-size:20px}
+  /* modal de confirmação do dia (quando clica no dia) */
+  .select-day-modal .date-preview{font-weight:bold;color:#2a5c55;margin:8px 0;font-size:18px}
+  /* confirmação de exclusão */
+  .confirm-buttons{display:flex;gap:12px;justify-content:center}
+  .confirm-buttons .btn-cancel{background:#ccc;color:#000;padding:8px 14px;border-radius:8px;border:none;cursor:pointer}
+  /* Substitua sua regra .btn-cancel por esta */
+.btn-cancel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2a5c55;                    /* texto verde */
+  background: linear-gradient(#f7fbf9, #ecf6f2); /* leve efeito "ghost" */
+  border: 2px solid #2a5c55;         /* contorno no tom principal */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease, color 150ms ease;
+  box-shadow: 0 2px 8px rgba(42,92,85,0.08);
+  line-height: 1;
+}
+
+/* Hover: inverte cores e eleva */
+.btn-cancel:hover {
+  background: #2a5c55;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(42,92,85,0.18);
+}
+
+/* Focus visível para teclados (acessibilidade) */
+.btn-cancel:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(42,92,85,0.12), 0 2px 8px rgba(42,92,85,0.08);
+  border-color: #153530;
+}
+
+/* Estado pressionado */
+.btn-cancel:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(42,92,85,0.12);
+}
+
+/* Versão pequena (se quiser usar em modais compactos) */
+.btn-cancel.small {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+    /* Header */
+    header {
+>>>>>>> 8e99e8bac065e709db83198d5c67922bcc54d355
   position: fixed; top:0; left:0; width:100%; height:70px;
   background:#ffffffcc; display:flex; justify-content:space-between; align-items:center;
   padding:0 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1); z-index:1000;
@@ -259,6 +346,7 @@ nav ul li a{ text-decoration:none; color:black;  padding:5px 10px; border-radius
     </nav>
   </header>
 <h1>Calendário</h1>
+<<<<<<< HEAD
 
 <div class="calendar">
   <div class="month">
@@ -294,8 +382,101 @@ const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 const eventsContainer = document.querySelector('.event-list');
 const addBtn = document.querySelector('.add-event');
+=======
 
+<div class="calendar">
+  <div class="month">
+    <i class="fas fa-angle-left prev"></i>
+    <div class="date"></div>
+    <i class="fas fa-angle-right next"></i>
+  </div>
+
+  <div class="weekdays">
+    <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+  </div>
+>>>>>>> 8e99e8bac065e709db83198d5c67922bcc54d355
+
+  <div class="days"></div>
+  <div class="events"></div>
+  <button class="add-event">+ Adicionar Evento</button>
+</div>
+
+<!-- Modal: confirmar dia clicado -->
+<div class="modal select-day-modal" id="selectDayModal">
+  <div class="header">Confirmar dia <span class="close" id="selectDayClose">✕</span></div>
+  <div style="text-align:left">
+    <div>Você quer criar um evento em:</div>
+    <div class="date-preview" id="selectDayPreview">--/--/----</div>
+  </div>
+  <div class="footer" style="margin-top:12px">
+    <button class="btn" id="selectDayConfirm">Sim, criar evento</button>
+    <button class="btn-cancel" id="selectDayCancel">Cancelar</button>
+  </div>
+</div>
+
+<!-- Modal: adicionar evento -->
+<div class="modal add-event-modal" id="addEventModal">
+  <div class="header">
+    <div>Novo Evento</div>
+    <div class="close" id="addClose">✕</div>
+  </div>
+  <div>
+    <div style="text-align:left;font-weight:bold;color:#2a5c55">Data selecionada: <span id="addEventDatePreview">--/--/----</span></div>
+    <input type="text" class="event-name" placeholder="Título do evento" id="evtTitle">
+    <input type="time" class="event-time-from" id="evtFrom">
+    <input type="time" class="event-time-to" id="evtTo">
+  </div>
+  <div class="footer">
+    <button class="btn" id="saveEventBtn">Salvar</button>
+  </div>
+</div>
+
+<!-- Modal: confirmação exclusão -->
+<div class="modal" id="confirmDeleteModal">
+  <div class="header">Excluir evento <span class="close" id="delClose">✕</span></div>
+  <div style="text-align:left">
+    <p>Deseja excluir este evento?</p>
+  </div>
+  <div class="confirm-buttons">
+    <button class="btn" id="confirmDeleteYes">Sim</button>
+    <button class="btn-cancel" id="confirmDeleteNo">Cancelar</button>
+  </div>
+</div>
+
+<script>
+/* --- Elements --- */
+const dateEl = document.querySelector('.date');
+const daysContainer = document.querySelector('.days');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const eventsContainer = document.querySelector('.events');
+const addEventBtn = document.querySelector('.add-event');
+
+/* select-day modal */
+const selectDayModal = document.getElementById('selectDayModal');
+const selectDayPreview = document.getElementById('selectDayPreview');
+const selectDayConfirm = document.getElementById('selectDayConfirm');
+const selectDayCancel = document.getElementById('selectDayCancel');
+const selectDayClose = document.getElementById('selectDayClose');
+
+/* add-event modal */
+const addEventModal = document.getElementById('addEventModal');
+const addEventDatePreview = document.getElementById('addEventDatePreview');
+const addClose = document.getElementById('addClose');
+const evtTitle = document.getElementById('evtTitle');
+const evtFrom = document.getElementById('evtFrom');
+const evtTo = document.getElementById('evtTo');
+const saveEventBtn = document.getElementById('saveEventBtn');
+
+/* delete modal */
+const confirmDeleteModal = document.getElementById('confirmDeleteModal');
+const confirmDeleteYes = document.getElementById('confirmDeleteYes');
+const confirmDeleteNo = document.getElementById('confirmDeleteNo');
+const delClose = document.getElementById('delClose');
+
+/* --- State --- */
 let today = new Date();
+<<<<<<< HEAD
 let month = today.getMonth();
 let year = today.getFullYear();
 let selectedDate = null;
@@ -413,6 +594,298 @@ async function deleteEvent(id){
 
 // Inicializa
 renderCalendar();
+=======
+let year = today.getFullYear();
+let month = today.getMonth(); // 0-index
+let activeDay = null;        // day shown as active in UI
+let selectedDay = null;      // day user clicked to create event (confirmed)
+let selectedDateForModal = null; // {year, month, day}
+let eventsArr = []; // array built from buscar_eventos.php
+let pendingSelectAfterRender = null; // used when clicking prev/next-date
+
+const months = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+
+/* --- Initialize --- */
+fetchEvents();
+renderCalendar();
+
+/* --- Fetch events from server (expects buscar_eventos.php returning JSON array) --- */
+async function fetchEvents(){
+  try {
+    const res = await fetch('buscar_eventos.php');
+    const data = await res.json(); // expect fields: id, titulo, data_evento (YYYY-MM-DD), hora_inicio, hora_fim
+    // parse date string directly to avoid timezone shifts
+    eventsArr = data.map(ev=>{
+      const [y, m, d] = (ev.data_evento || '').split('-').map(Number);
+      return {
+        id: ev.id,
+        day: d,
+        month: m,
+        year: y,
+        events: [{ title: ev.titulo, time: `${ev.hora_inicio} - ${ev.hora_fim}` }]
+      };
+    });
+    // re-render calendar with new events
+    renderCalendar();
+    // show events for activeDay
+    if (activeDay) updateEvents(activeDay);
+  } catch(err) {
+    console.error('Erro ao buscar eventos:', err);
+  }
+}
+
+/* --- Save event to DB (salvar_evento.php) --- */
+async function saveEventToDB(title, dateStr, from, to){
+  const form = new FormData();
+  form.append('titulo', title);
+  form.append('data_evento', dateStr);
+  form.append('hora_inicio', from);
+  form.append('hora_fim', to);
+  const res = await fetch('salvar_evento.php',{ method:'POST', body: form });
+  return res.text();
+}
+
+/* --- Delete event in DB (excluir_evento.php) --- */
+async function deleteEventInDB(id){
+  const form = new FormData();
+  form.append('id', id);
+  try {
+    const res = await fetch('excluir_evento.php',{ method:'POST', body: form });
+    return res.text();
+  } catch(e) {
+    console.error('Erro excluir_evento.php', e);
+    return 'erro';
+  }
+}
+
+/* --- Calendar rendering --- */
+function renderCalendar(){
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  const prevLast = new Date(year, month, 0);
+  const prevDays = prevLast.getDate();
+  const lastDate = lastDay.getDate();
+  const startDayOfWeek = firstDay.getDay();
+  const nextDays = 7 - lastDay.getDay() - 1;
+
+  dateEl.textContent = `${months[month]} ${year}`;
+
+  let daysHTML = '';
+  // prev month days
+  for(let x = startDayOfWeek; x > 0; x--){
+    daysHTML += `<div class="day prev-date">${prevDays - x + 1}</div>`;
+  }
+  // current month days
+  for(let i=1;i<=lastDate;i++){
+    const hasEvent = eventsArr.some(e => e.day === i && e.month === (month+1) && e.year === year);
+    const isToday = (i === today.getDate() && month === today.getMonth() && year === today.getFullYear());
+    daysHTML += `<div class="day ${isToday? 'today':''} ${hasEvent? 'event':''}">${i}</div>`;
+  }
+  // next month days
+  for(let j=1;j<=nextDays;j++){
+    daysHTML += `<div class="day next-date">${j}</div>`;
+  }
+
+  daysContainer.innerHTML = daysHTML;
+  addDayListeners();
+
+  // if there was a pending selection after navigating (click prev-date/next-date), apply it
+  if (pendingSelectAfterRender) {
+    // pendingSelectAfterRender: {day, targetIsPrev, targetIsNext}
+    const wanted = pendingSelectAfterRender.day;
+    // find the day element with that number and not prev-date/next-date
+    const nodes = Array.from(document.querySelectorAll('.day'));
+    const found = nodes.find(n => Number(n.textContent) === wanted && !n.classList.contains('prev-date') && !n.classList.contains('next-date'));
+    if (found) {
+      found.classList.add('active');
+      const dayNum = Number(found.textContent);
+      activeDay = dayNum;
+      // open confirm to create event? We'll emulate user click: show confirm modal
+      openSelectDayModal(dayNum, month, year);
+    }
+    pendingSelectAfterRender = null;
+  }
+}
+
+/* --- Add click listeners to each day (runs after render) --- */
+function addDayListeners(){
+  const days = document.querySelectorAll('.day');
+  days.forEach(dayEl=>{
+    dayEl.onclick = (e) => {
+      const el = e.currentTarget;
+      const dayNum = Number(el.textContent);
+
+      // If clicked is previous-month day -> go to previous month and then select that day in new month
+      if (el.classList.contains('prev-date')) {
+        const clickedDay = dayNum;
+        prevMonth();
+        // After render, select clickedDay in new current month
+        pendingSelectAfterRender = { day: clickedDay };
+        return;
+      }
+
+      // If clicked is next-month day -> go to next month and then select that day
+      if (el.classList.contains('next-date')) {
+        const clickedDay = dayNum;
+        nextMonth();
+        pendingSelectAfterRender = { day: clickedDay };
+        return;
+      }
+
+      // normal same-month day clicked: mark UI active and open confirm modal
+      // clear existing active
+      document.querySelectorAll('.day').forEach(d => d.classList.remove('active'));
+      el.classList.add('active');
+      activeDay = dayNum;
+      // show confirmation modal for selecting day
+      openSelectDayModal(dayNum, month, year);
+      updateEvents(dayNum); // update events list for this day
+    };
+  });
+}
+
+/* --- Prev / Next month handlers --- */
+function prevMonth(){
+  month--;
+  if (month < 0) { month = 11; year--; }
+  renderCalendar();
+}
+function nextMonth(){
+  month++;
+  if (month > 11) { month = 0; year++; }
+  renderCalendar();
+}
+prevBtn.addEventListener('click', prevMonth);
+nextBtn.addEventListener('click', nextMonth);
+
+/* --- Update events panel for a given day --- */
+function updateEvents(dateNum){
+  let html = '';
+  eventsArr.forEach(evObj=>{
+    if (evObj.day === dateNum && evObj.month === month+1 && evObj.year === year) {
+      evObj.events.forEach(ev=>{
+        html += `<div class="event">
+                  <div><i class="fas fa-circle"></i> ${escapeHtml(ev.title)} (${escapeHtml(ev.time)})</div>
+                  <button class="delete-btn" onclick="promptDelete(${evObj.id})">🗑️</button>
+                </div>`;
+      });
+    }
+  });
+  eventsContainer.innerHTML = html || `<div class="no-event">Nenhum evento</div>`;
+}
+
+/* --- Escape helper --- */
+function escapeHtml(text){
+  if (!text) return '';
+  return text.replace(/[&<>"'`=\/]/g, function(s){ return '&#'+s.charCodeAt(0)+';'; });
+}
+
+/* ----------------- SELECT DAY MODAL FLOW ----------------- */
+function openSelectDayModal(day, m, y){
+  selectedDay = day;
+  selectedDateForModal = { year: y, month: m, day: day }; // month is 0-index
+  const display = `${String(day).padStart(2,'0')}/${String(m+1).padStart(2,'0')}/${y}`;
+  selectDayPreview.textContent = display;
+  selectDayModal.classList.add('active');
+}
+selectDayClose.onclick = () => { selectDayModal.classList.remove('active'); };
+selectDayCancel.onclick = () => { selectDayModal.classList.remove('active'); };
+
+/* When user confirms the selected day, open add-event modal (prefilled date preview) */
+selectDayConfirm.onclick = () => {
+  if (!selectedDateForModal) { selectDayModal.classList.remove('active'); return; }
+  const { year: y, month: m, day: d } = selectedDateForModal;
+  addEventDatePreview.textContent = `${String(d).padStart(2,'0')}/${String(m+1).padStart(2,'0')}/${y}`;
+  // ensure the calendar UI shows that day active
+  document.querySelectorAll('.day').forEach(dn => dn.classList.remove('active'));
+  const nodes = Array.from(document.querySelectorAll('.day'));
+  const found = nodes.find(n => Number(n.textContent) === d && !n.classList.contains('prev-date') && !n.classList.contains('next-date'));
+  if (found) found.classList.add('active');
+  activeDay = d;
+  // open add-event modal
+  selectDayModal.classList.remove('active');
+  addEventModal.classList.add('active');
+};
+
+/* --- Add event modal controls --- */
+addEventBtn.onclick = () => {
+  // user clicked "Adicionar Evento" (open modal without pre-selecting day) -> require they select a day first
+  alert('Selecione um dia no calendário antes de adicionar um evento.');
+};
+addClose.onclick = () => { addEventModal.classList.remove('active'); };
+/* Save event: uses selectedDateForModal (must be set by confirming select-day modal) */
+saveEventBtn.onclick = async () => {
+  if (!selectedDateForModal) { alert('Selecione um dia primeiro.'); return; }
+  const title = evtTitle.value.trim();
+  const from = evtFrom.value.trim();
+  const to = evtTo.value.trim();
+  if (!title || !from || !to) { alert('Preencha todos os campos'); return; }
+
+  const {year: y, month: m, day: d} = selectedDateForModal;
+  // build YYYY-MM-DD exactly using chosen values
+  const dateStr = `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+
+  try {
+    const result = await saveEventToDB(title, dateStr, from, to);
+    if (result.trim() === 'ok') {
+      // clear inputs, close modal and refresh events
+      evtTitle.value = '';
+      evtFrom.value = '';
+      evtTo.value = '';
+      addEventModal.classList.remove('active');
+      // refresh events from server
+      await fetchEvents();
+      // show events for currently selected day
+      updateEvents(d);
+      alert('Evento salvo!');
+    } else {
+      console.error('Resposta salvar_evento.php:', result);
+      alert('Erro ao salvar evento');
+    }
+  } catch (e) {
+    console.error('Erro ao salvar evento', e);
+    alert('Erro ao salvar evento');
+  }
+};
+
+/* ----------------- DELETE FLOW (modal) ----------------- */
+/* This function is attached inline in event HTML: promptDelete(id) */
+window.promptDelete = function(id){
+  // open delete modal and store id in closure variable
+  eventToDelete = id;
+  confirmDeleteModal.classList.add('active');
+};
+confirmDeleteYes.onclick = async () => {
+  if (!eventToDelete) { confirmDeleteModal.classList.remove('active'); return; }
+  try {
+    const result = await deleteEventInDB(eventToDelete);
+    if (result.trim() === 'ok') {
+      await fetchEvents();
+      // if activeDay exists, refresh that day's events
+      if (activeDay) updateEvents(activeDay);
+    } else {
+      console.error('Resposta excluir_evento.php:', result);
+      alert('Erro ao excluir evento');
+    }
+  } catch(e) {
+    console.error('Erro ao excluir evento', e);
+    alert('Erro ao excluir evento');
+  } finally {
+    eventToDelete = null;
+    confirmDeleteModal.classList.remove('active');
+  }
+};
+confirmDeleteNo.onclick = () => { eventToDelete = null; confirmDeleteModal.classList.remove('active'); };
+delClose.onclick = () => { eventToDelete = null; confirmDeleteModal.classList.remove('active'); };
+
+/* ----------------- Utility helpers ----------------- */
+/* When pressing Enter in inputs, save event */
+[evtTitle, evtFrom, evtTo].forEach(inp => {
+  inp.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') saveEventBtn.click();
+  });
+});
+>>>>>>> 8e99e8bac065e709db83198d5c67922bcc54d355
 </script>
 
 </body>

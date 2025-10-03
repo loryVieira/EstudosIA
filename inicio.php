@@ -443,7 +443,7 @@ nav .search-bar button:hover {
   <h2>Funções Principais</h2>
   <div class="cards">
     <a href="/anotacoes/index.html" class="card"><i class="fa-solid fa-pen-to-square"></i><h3>Anotações</h3><p>Crie e organize suas anotações.</p></a>
-    <a href="flashcard.html/index.html" class="card"><i class="fa-solid fa-clone"></i><h3>Flashcards</h3><p>Revise conteúdos com cartões interativos.</p></a>
+    <a href="/flashcard.html/index.html" class="card"><i class="fa-solid fa-clone"></i><h3>Flashcards</h3><p>Revise conteúdos com cartões interativos.</p></a>
     <a href="/Plano_estudos/plano_estudos.php" class="card"><i class="fa-solid fa-calendar-days"></i><h3>Plano de Estudos</h3><p>Monte seu cronograma personalizado.</p></a>
     <a href="/arquivos/upload_pdf.php" class="card"><i class="fa-solid fa-folder"></i><h3>Arquivos</h3><p>Organize e acesse seus arquivos de estudo.</p></a>
     <a href="calendario.html" class="card"><i class="fa-solid fa-calendar"></i><h3>Calendário</h3><p>Acompanhe compromissos e provas.</p></a>

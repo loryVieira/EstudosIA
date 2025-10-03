@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 session_start();
 include 'config.php';
 
@@ -25,5 +26,18 @@ if ($result->num_rows > 0) {
 }
 
 echo json_encode($events);
+=======
+include 'config.php';
+
+$result = $conn->query("SELECT * FROM eventos ORDER BY data_evento ASC, hora_inicio ASC");
+
+$events = [];
+while($row = $result->fetch_assoc()){
+    $events[] = $row;
+}
+
+echo json_encode($events);
+
+>>>>>>> 8e99e8bac065e709db83198d5c67922bcc54d355
 $conn->close();
 ?>
