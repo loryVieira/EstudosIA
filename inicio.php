@@ -464,17 +464,6 @@ nav .search-bar button:hover {
   </div>
 </div>
 
-<div class="social-panel-backdrop" id="socialBackdrop">
-  <div class="social-panel">
-    <div class="panel-header">
-      Rede Social
-      <button id="socialClose">Fechar ✕</button>
-    </div>
-    <div class="iframe-wrap">
-      <iframe src="redesocial.php?embed=1" title="Rede Social"></iframe>
-    </div>
-  </div>
-</div>
 <!-- Cronômetro -->
 <a href="/Cronometro_Raking/cronometro.php" class="cronometro-icone" title="Ir para Cronômetro">
   <i class="fa-solid fa-stopwatch"></i>
